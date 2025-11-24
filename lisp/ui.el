@@ -25,9 +25,9 @@
 (add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 
 ;; Font (ubah jika perlu)
-(set-face-attribute 'default nil :font "Zenbones Mono" :height 160)
-(set-face-attribute 'fixed-pitch nil :font "Zenbones Mono" :height 160)
-(set-face-attribute 'variable-pitch nil :font "Inter" :height 120)
+;;(set-face-attribute 'default nil :font "Zenbones Mono" :height 160)
+;;(set-face-attribute 'fixed-pitch nil :font "Zenbones Mono" :height 160)
+;;(set-face-attribute 'variable-pitch nil :font "Inter" :height 120)
 
 ;; Display line numbers
 (setq display-line-numbers-type 'relative) ;; or 't

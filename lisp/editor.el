@@ -16,6 +16,8 @@
   :ensure t
   :bind
   (("C-x u" . vundo))        ; shortcut untuk membuka visual undo tree
+  :init
+  (vundo-popup-mode)
   :config
   ;; Gunakan karakter yang lebih enak dibaca
   (setq vundo-glyph-alist vundo-unicode-symbols)

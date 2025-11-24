@@ -7,242 +7,180 @@
   :bind (("C-c h" . cheatsheet-show)
          ("C-c H" . cheatsheet-add))
   :config
-  ;; Basic Navigation & File Management
-  (cheatsheet-add
-   :group 'Navigation
-   :key "C-x C-f"
-   :description "Find file (buka/membuat file baru)")
-  (cheatsheet-add
-   :group 'Navigation  
-   :key "C-x C-s"
-   :description "Save file")
-  (cheatsheet-add
-   :group 'Navigation
-   :key "C-x b"
-   :description "Switch buffer")
-  (cheatsheet-add
-   :group 'Navigation
-   :key "C-x k"
-   :description "Kill buffer")
-  (cheatsheet-add
-   :group 'Navigation
-   :key "C-x 0"
-   :description "Close current window")
-  (cheatsheet-add
-   :group 'Navigation
-   :key "C-x 1"
-   :description "Close other windows")
-  (cheatsheet-add
-   :group 'Navigation
-   :key "C-x 2"
-   :description "Split window horizontally")
-  (cheatsheet-add
-   :group 'Navigation
-   :key "C-x 3"
-   :description "Split window vertically")
 
-  ;; Text Editing
-  (cheatsheet-add
-   :group 'Editing
-   :key "C-space"
-   :description "Start selection (set mark)")
-  (cheatsheet-add
-   :group 'Editing
-   :key "C-w"
-   :description "Cut region")
-  (cheatsheet-add
-   :group 'Editing
-   :key "M-w"
-   :description "Copy region")
-  (cheatsheet-add
-   :group 'Editing
-   :key "C-y"
-   :description "Paste (yank)")
-  (cheatsheet-add
-   :group 'Editing
-   :key "C-k"
-   :description "Kill line")
-  (cheatsheet-add
-   :group 'Editing
-   :key "C-/"
-   :description "Undo")
-  (cheatsheet-add
-   :group 'Editing
-   :key "C-s"
-   :description "Forward search")
-  (cheatsheet-add
-   :group 'Editing
-   :key "C-r"
-   :description "Backward search")
+  (dolist (item '(
+                  ("M-d"            . "Delete word")
+                  ("C-k"            . "Delete this line")
+                  ("M-z X"  . "Delete until the X char")
+                  
+                  ))
+    
+    (cheatsheet-add
+     :group 'editing-texts
+     :key (car item)
+     :description (cdr item)))
 
-  ;; Code Navigation
-  (cheatsheet-add
-   :group 'Code-Navigation
-   :key "C-a"
-   :description "Beginning of line")
-  (cheatsheet-add
-   :group 'Code-Navigation
-   :key "C-e"
-   :description "End of line")
-  (cheatsheet-add
-   :group 'Code-Navigation
-   :key "M-a"
-   :description "Beginning of sentence/function")
-  (cheatsheet-add
-   :group 'Code-Navigation
-   :key "M-e"
-   :description "End of sentence/function")
-  (cheatsheet-add
-   :group 'Code-Navigation
-   :key "M-<"
-   :description "Beginning of buffer")
-  (cheatsheet-add
-   :group 'Code-Navigation
-   :key "M->"
-   :description "End of buffer")
-  (cheatsheet-add
-   :group 'Code-Navigation
-   :key "M-g g"
-   :description "Go to line")
+  (dolist (item '(("C-f"  . "Forward (kanan)")
+                  ("C-b"  . "Backward (kiri)")
+                  ("C-n"  . "Next line (turun)")
+                  ("C-p"  . "Previous line (naik)")
+                  ("M-f"  . "Forward word")
+                  ("M-b"  . "Backward word")
+                  ("C-a"  . "Beginning of line")
+                  ("C-e"  . "End of line")
+                  ("M-<"  . "Beginning of buffer")
+                  ("M->"  . "End of buffer")))
+    (cheatsheet-add
+     :group 'navigation
+     :key (car item)
+     :description (cdr item)))
 
-  ;; LSP Mode
-  (cheatsheet-add
-   :group 'LSP
-   :key "M-."
-   :description "Go to definition")
-  (cheatsheet-add
-   :group 'LSP
-   :key "M-,"
-   :description "Go back from definition")
-  (cheatsheet-add
-   :group 'LSP
-   :key "C-c C-r"
-   :description "Rename symbol")
-  (cheatsheet-add
-   :group 'LSP
-   :key "C-c C-a"
-   :description "Code actions")
-  (cheatsheet-add
-   :group 'LSP
-   :key "C-c C-d"
-   :description "Show documentation")
-  (cheatsheet-add
-   :group 'LSP
-   :key "C-c C-f"
-   :description "Format buffer")
+  (dolist (item '(("C-/"     . "Undo")
+                  ("C-_"     . "Undo (alternate)")
+                  ("C-x u"   . "Akses Vundo")
+                  ("C-g C-/" . "Redo (jika pakai undo-tree / undo-fu)")))
+    (cheatsheet-add
+     :group 'undo-redo
+     :key (car item)
+     :description (cdr item)))
 
-  ;; Debugging (DAP)
-  (cheatsheet-add
-   :group 'Debugging
-   :key "M-x dap-debug"
-   :description "Start debugging")
-  (cheatsheet-add
-   :group 'Debugging
-   :key "C-c d b"
-   :description "Toggle breakpoint")
-  (cheatsheet-add
-   :group 'Debugging
-   :key "C-c d c"
-   :description "Continue")
-  (cheatsheet-add
-   :group 'Debugging
-   :key "C-c d n"
-   :description "Next line")
+  (dolist (item '(("C-SPC" . "Set mark (mulai selection)")
+                  ("C-w"   . "Cut region (kill)")
+                  ("M-w"   . "Copy region")
+                  ("C-y"   . "Paste (yank)")
+                  ("M-y"   . "Yank cycle (browse kill-ring)")))
+    (cheatsheet-add
+     :group 'copy-cut-paste
+     :key (car item)
+     :description (cdr item)))
 
-  ;; Version Control (Magit)
-  (cheatsheet-add
-   :group 'Git
-   :key "C-x g"
-   :description "Open Magit status")
-  (cheatsheet-add
-   :group 'Git
-   :key "s"
-   :description "Stage file (dalam Magit)")
-  (cheatsheet-add
-   :group 'Git
-   :key "c c"
-   :description "Commit (dalam Magit)")
-  (cheatsheet-add
-   :group 'Git
-   :key "p p"
-   :description "Push (dalam Magit)")
+  (dolist (item '(("C-x C-f" . "Open file")
+                  ("C-x C-s" . "Save file")
+                  ("C-x C-w" . "Save as")
+                  ("C-x k"   . "Kill buffer")
+                  ("C-x b"   . "Switch buffer")
+                  ))
+    (cheatsheet-add
+     :group 'file-handling
+     :key (car item)
+     :description (cdr item)))
 
-  ;; Terminal
-  (cheatsheet-add
-   :group 'Terminal
-   :key "M-x term"
-   :description "Open terminal")
-  (cheatsheet-add
-   :group 'Terminal
-   :key "M-x shell"
-   :description "Open shell buffer")
-  (cheatsheet-add
-   :group 'Terminal
-   :key "C-c C-j"
-   :description "Switch to line mode (term)")
+  (dolist (item '(("C-s"     . "Search forward (incremental)")
+                  ("C-r"     . "Search backward")
+                  ("M-%"     . "Query replace")
+                  ("C-M-%"   . "Query replace regexp")))
+    (cheatsheet-add
+     :group 'search-replace
+     :key (car item)
+     :description (cdr item)))
 
-  ;; Project Management
-  (cheatsheet-add
-   :group 'Project
-   :key "C-c p f"
-   :description "Find file in project")
-  (cheatsheet-add
-   :group 'Project
-   :key "C-c p s g"
-   :description "Grep in project")
-  (cheatsheet-add
-   :group 'Project
-   :key "C-c p p"
-   :description "Switch project")
+  (dolist (item '(("C-s"     "Search in buffer"             consult-line)
+                  ("C-x b"   "Switch buffer"                consult-buffer)
+                  ("C-x C-r" "Open recent file"             consult-recent-file)
+                  ("M-g g"   "Go to line"                   consult-goto-line)
+                  ("M-g i"   "Go to symbol/imenu"           consult-imenu)
+                  ("M-s d"   "Find file"                    consult-find)
+                  ("M-s r"   "Search using ripgrep"         consult-ripgrep)))
+    (cheatsheet-add
+     :group 'search-with-consult
+     :key (nth 0 item)
+     :description (nth 1 item)))
 
-  ;; Completion & Documentation
-  (cheatsheet-add
-   :group 'Completion
-   :key "M-TAB"
-   :description "Complete symbol")
-  (cheatsheet-add
-   :group 'Completion
-   :key "C-M-i"
-   :description "Complete at point")
-  (cheatsheet-add
-   :group 'Completion
-   :key "C-c ?"
-   :description "Show documentation")
+  ;; todo - comment uncomment region
 
-  ;; Window Management
-  (cheatsheet-add
-   :group 'Windows
-   :key "C-x o"
-   :description "Switch to other window")
-  (cheatsheet-add
-   :group 'Windows
-   :key "C-x 4 f"
-   :description "Find file in other window")
-  (cheatsheet-add
-   :group 'Windows
-   :key "C-x 5 2"
-   :description "Make new frame")
+  ;; --- Group: Heading & Structure ---
+  (dolist (item '(("M-RET"       "New heading"                  org-meta-return)
+                  ("M-S-RET"     "New TODO heading"             org-insert-todo-heading)
+                  ("M-left"      "Promote heading"              org-metaleft)
+                  ("M-right"     "Demote heading"               org-metaright)
+                  ("M-up"        "Move heading up"              org-metaup)
+                  ("M-down"      "Move heading down"            org-metadown)
+                  ("C-c C-w"     "Refile subtree"               org-refile)
+                  ("C-c ^"       "Sort entries"                 org-sort)))
+    (cheatsheet-add
+     :group 'org-heading
+     :key (nth 0 item)
+     :description (nth 1 item)))
 
-  ;; Help System
-  (cheatsheet-add
-   :group 'Help
-   :key "C-h k"
-   :description "Describe key binding")
-  (cheatsheet-add
-   :group 'Help
-   :key "C-h f"
-   :description "Describe function")
-  (cheatsheet-add
-   :group 'Help
-   :key "C-h v"
-   :description "Describe variable")
+  ;; --- Group: Navigation ---
 
-  ;; Custom key untuk membuka cheatsheet
-  (cheatsheet-add
-   :group 'Cheatsheet
-   :key "C-c h"
-   :description "Show cheatsheet")
-  (cheatsheet-add
-   :group 'Cheatsheet
-   :key "C-c H"
-   :description "Add new cheatsheet entry"))
+  (dolist (item '(("M-n"         "Next visible heading"          outline-next-visible-heading)
+                  ("M-p"         "Previous visible heading"      outline-previous-visible-heading)
+                  ("C-c C-n"     "Next heading"                  org-next-visible-heading)
+                  ("C-c C-p"     "Previous heading"              org-previous-visible-heading)
+                  ("C-c C-f"     "Next heading same level"       org-forward-heading-same-level)
+                  ("C-c C-b"     "Prev heading same level"       org-backward-heading-same-level)
+                  ("M-g i"       "Jump to heading (consult-imenu)" consult-imenu)))
+    (cheatsheet-add
+     :group 'org-navigation
+     :key (nth 0 item)
+     :description (nth 1 item)))
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Cycle TODO states"
+                  :key "C-c C-t"
+                  :command "Cycle TODO / DONE / custom states")
+
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Set TODO state"
+                  :key "C-c C-s"
+                  :command "Set specific TODO state with prompt")
+
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Insert new TODO heading"
+                  :key "C-c C-x t"
+                  :command "Insert new TODO entry at point")
+
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Mark DONE"
+                  :key "C-c C-t d"
+                  :command "Set state to DONE quickly")
+
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Mark TODO"
+                  :key "C-c C-t t"
+                  :command "Set state to TODO quickly")
+
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Add priority A/B/C"
+                  :key "C-c ,"
+                  :command "Set priority for current heading")
+
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Change TODO state with fast selection"
+                  :key "t (in agenda)"
+                  :command "Change task state from agenda buffer")
+
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Refile task"
+                  :key "C-c C-w"
+                  :command "Move TODO to another heading or file")
+
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Schedule task"
+                  :key "C-c C-s"
+                  :command "Schedule a TODO with a date")
+
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Set DEADLINE"
+                  :key "C-c C-d"
+                  :command "Add deadline to TODO entry")
+
+
+  (cheatsheet-add :group 'Org-TODO
+                  :description "Open agenda view"
+                  :key "C-c a"
+                  :command "Org agenda dispatcher")
+
+  
+  )
+

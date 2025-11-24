@@ -1,19 +1,4 @@
-;; ----------------------------------------
-;; Corfu Popup Completion (VSCode-like)
-;; ----------------------------------------
-                                        ; (use-package corfu
-                                        ;   :ensure t
-                                        ;   :config
-                                        ;   (require 'corfu-popupinfo)
-                                        ;   :custom
-                                        ;   (corfu-auto t)
-                                        ;   (corfu-auto-delay 0.05)
-                                        ;   (corfu-auto-prefix 1)
-                                        ;   (corfu-preselect 'prompt)
-                                        ;   (corfu-popupinfo-delay 0.1)
-                                        ;   :init
-                                        ;   (global-corfu-mode)
-                                        ;   (corfu-popupinfo-mode))    ;; <== Description seperti VSCode
+;;; LSP
 
 (use-package corfu
   :ensure t
@@ -68,8 +53,8 @@
   ;; Biarkan CAPF diambil oleh Corfu.
   (lsp-completion-provider :capf)
   ;; Hover seperti VSCode
-  (lsp-eldoc-enable-hover t)
-  (lsp-signature-render-documentation t)
+  (lsp-eldoc-enable-hover nil)
+  (lsp-signature-render-documentation nil)
   ;; Diagnostic VSCode-like
   (lsp-diagnostics-provider :flycheck))
 ;; (lsp-enabled-clients '(ruff)))
@@ -92,7 +77,7 @@
   (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-code-actions t)
   (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable t)
+  (lsp-ui-doc-enable nil)
   (lsp-ui-doc-delay 0.3)
   (lsp-ui-doc-position 'at-point)) ;; mirip VSCode hover tooltip
 
@@ -107,4 +92,12 @@
 (use-package yasnippet
   :ensure t
   :config
-  (yas-global-mode 1))
+  (yas-reload-all)
+  (add-hook 'prog-mode-hook 'yas-minor-mode)
+  (add-hook 'markdown-mode-hook 'yas-minor-mode))
+
+(use-package yasnippet-snippets
+  :ensure t)
+
+;; C-i = expand snippet langsung
+(define-key yas-minor-mode-map (kbd "C-i") #'yas-expand)

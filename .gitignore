@@ -1,2 +1,4 @@
 eln-cache/*
 elpa/*
+data/*
+data.cache/*
