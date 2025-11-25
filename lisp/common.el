@@ -97,10 +97,10 @@
 (global-set-key (kbd "C-u") #'my-scroll-down-half)
 (global-set-key (kbd "C-d") #'my-scroll-up-half)
 
-(use-package gruber-darker-theme
-  :ensure t
-  :config
-  (load-theme 'gruber-darker t))
+;; (use-package gruber-darker-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'gruber-darker t))
 
 ;; (use-package atom-one-dark-theme
 ;;   :ensure t
@@ -112,11 +112,11 @@
 ;;   :config
 ;;   (load-theme 'kanagawa-wave t))
 
-;; ;; Tema modern (gunakan salah satu)
-;; (use-package doom-themes         ;;
-;;   :ensure t                      ;;
-;;   :config                        ;;
-;;   (load-theme 'doom-ayu-dark t)) ;;
+;; Tema modern (gunakan salah satu)
+(use-package doom-themes         ;;
+  :ensure t                      ;;
+  :config                        ;;
+  (load-theme 'doom-tokyo-night t)) ;;
 
 ;; Icon support (penting untuk dashboard, treemacs, etc)
 (use-package all-the-icons
@@ -125,8 +125,15 @@
 ;; Modeline modern & cepat
 (use-package doom-modeline
   :ensure t
-  :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 22)))
+  :init
+  (doom-modeline-mode 1)
+  :custom
+  (doom-modeline-height 36)     ;; tinggi modeline
+  (doom-modeline-bar-width 3)   ;; garis vertical kecil
+  (doom-modeline-icon t)        ;; icon ON
+  (doom-modeline-major-mode-icon t)
+  (doom-modeline-buffer-file-name-style 'truncate-upto-root))
+
 
 (use-package rainbow-delimiters
   :ensure t
