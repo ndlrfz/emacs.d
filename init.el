@@ -1,0 +1,10 @@
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
+(load "straight.el")
+(load "ui.el")
+(load "common.el")
+(load "treesitter.el")
+(load "formatter.el")
+(load "utils.el")
+(load "markdown.el")
+(load "org-config.el")

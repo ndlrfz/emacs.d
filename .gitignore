@@ -2,3 +2,6 @@ data/*
 data.cache/*
 elpa/*
 eln-cache/*
+auto-save-list/*
+straight/*
+transient/*
