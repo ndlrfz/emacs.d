@@ -41,13 +41,13 @@
 (defun my/set-default-font ()
   (set-face-attribute 'default nil
                       :family "Zenbones Mono"
-                      :height 165)   ;; 120 = 12pt
+                      :height 168)   ;; 120 = 12pt
   (set-face-attribute 'fixed-pitch nil
                       :family "Zenbones Mono"
-                      :height 165)
+                      :height 168)
   (set-face-attribute 'variable-pitch nil
                       :family "Zenbones Mono"
-                      :height 150))
+                      :height 154))
 
 ;; Apply font for GUI frames (emacsclient included)
 (if (daemonp)

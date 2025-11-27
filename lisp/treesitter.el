@@ -17,6 +17,12 @@
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
+(use-package nix-ts-mode
+  :straight t
+  :config
+  (nix-ts-mode))
+
 ;; force php to php-ts-mode
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-ts-mode))
 
