@@ -86,3 +86,17 @@
         ("n" "Note" entry
          (file+headline "~/notes.org" "Notes")
          "* %?\n  %U\n")))
+
+;; Todo + type keywords — NOTE dkk dibuat sebagai type (tidak ikut progress statistic)
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "IN-PROGRESS(i)" "|" "DONE(d)")
+        (type "NOTE(n)" "IDEA(i)" "QUESTION(q)")))
+
+;; Warna untuk keyword agar mudah dibedakan
+(setq org-todo-keyword-faces
+      '(("TODO" . "tomato")
+        ("IN-PROGRESS" . "gold")
+        ("DONE" . "green")
+        ("NOTE" . "steelblue")
+        ("IDEA" . "purple")
+        ("QUESTION" . "orange")))

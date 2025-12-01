@@ -1,4 +1,4 @@
-;; Basic UI cleanup
+;; Basic UI cleanupaa
 (menu-bar-mode -1)          ; Hide menu bar
 (tool-bar-mode -1)          ; Hide tool bar
 (scroll-bar-mode -1)        ; Hide scroll bar
@@ -131,16 +131,22 @@
   :config
   (exec-path-from-shell-initialize))
 
-;; Modeline minimal dengan doom-modeline
+;; ;; Modeline minimal dengan doom-modeline
 (use-package doom-modeline
   :straight t
   :init (doom-modeline-mode 1)
   :config
-  (setq doom-modeline-height 36
-        doom-modeline-buffer-file-name-style 'truncate-upto-project
+  (setq doom-modeline-height 34
+        doom-modeline-buffer-file-name-style 'truncate-except-project
+        doom-modeline-project-name t
         doom-modeline-bar-width 3
         doom-modeline-minor-modes nil
         doom-modeline-buffer-encoding t
+        doom-modeline-icon t
+        doom-modeline-major-mode-icon t
+        doom-modeline-major-mode-color-icon t
+        doom-modeline-buffer-modification-icon t
+        doom-modeline-time t
         doom-modeline-lsp t))
 
 ;; Icons
@@ -152,7 +158,12 @@
 (use-package doom-themes
   :straight t
   :config
-  (load-theme 'doom-bluloco-dark t))
+  (load-theme 'doom-tokyo-night t))
+
+;; (use-package flexoki-themes
+;;   :straight t
+;;   :config
+;;   (load-theme 'flexoki-themes-dark t))
 
 ;; Vertico untuk completion UI yang minimal
 (use-package vertico

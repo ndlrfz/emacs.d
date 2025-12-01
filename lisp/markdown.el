@@ -9,5 +9,5 @@
 (use-package grip-mode
   :straight t
   :config
-  (setq grip-command 'auto)
-  :hook ((markdown-mode org-mode) . grip-mode))
+  (setq grip-command 'auto))
+;;  :hook ((markdown-mode org-mode) . grip-mode))

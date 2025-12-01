@@ -8,3 +8,6 @@
 (load "utils.el")
 (load "markdown.el")
 (load "org-config.el")
+(load "lsp.el")
+(load "lang.el")
+(load "dap.el")
