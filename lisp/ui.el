@@ -22,7 +22,7 @@
 (setq display-line-numbers-type 'relative)  ; Relative line numbers
 
 ;; Column indicator
-(setq-default fill-column 100)
+(setq-default fill-column 88)
 (global-display-fill-column-indicator-mode 1)
 
 ;; tab 4 spaces
@@ -40,14 +40,14 @@
 ;; Default font settings
 (defun my/set-default-font ()
   (set-face-attribute 'default nil
-                      :family "Zenbones Mono"
-                      :height 168)   ;; 120 = 12pt
+                      :family "Iosevka"
+                      :height 170)   ;; 120 = 12pt
   (set-face-attribute 'fixed-pitch nil
-                      :family "Zenbones Mono"
-                      :height 168)
+                      :family "Iosevka"
+                      :height 170)
   (set-face-attribute 'variable-pitch nil
-                      :family "Zenbones Mono"
-                      :height 154))
+                      :family "Iosevka"
+                      :height 160))
 
 ;; Apply font for GUI frames (emacsclient included)
 (if (daemonp)
@@ -131,34 +131,116 @@
   :config
   (exec-path-from-shell-initialize))
 
-;; ;; Modeline minimal dengan doom-modeline
-(use-package doom-modeline
-  :straight t
-  :init (doom-modeline-mode 1)
-  :config
-  (setq doom-modeline-height 34
-        doom-modeline-buffer-file-name-style 'truncate-except-project
-        doom-modeline-project-name t
-        doom-modeline-bar-width 3
-        doom-modeline-minor-modes nil
-        doom-modeline-buffer-encoding t
-        doom-modeline-icon t
-        doom-modeline-major-mode-icon t
-        doom-modeline-major-mode-color-icon t
-        doom-modeline-buffer-modification-icon t
-        doom-modeline-time t
-        doom-modeline-lsp t))
+(use-package nerd-icons
+  :straight t)
 
 ;; Icons
 (use-package all-the-icons
-  :straight t
-  :if (display-graphic-p))
+  :straight t)
 
-;; Install theme
-(use-package doom-themes
+; (use-package punch-line
+;   :straight (punch-line :host github :repo "konrad1977/punch-line")
+;   :hook ((after-init . punch-line-mode)        ;; Load punch-line
+;           (after-init . punch-load-tasks))      ;; Load saved current tasks
+;   :config
+;   (setq
+;    punch-line-left-separator "  "
+;    punch-line-right-separator "  "
+;    punch-show-lsp-info t
+;    punch-show-flycheck-info t
+;    punch-show-project-info t
+;    punch-show-git-info t
+;    punch-line-show-time-info nil))
+;
+(use-package maple-modeline
+  :straight (maple-modeline :host github :repo "honmaple/emacs-maple-modeline")
+  :hook (after-init . maple-modeline-mode)
+  :config
+  (setq maple-modeline-style 'standard
+        maple-modeline-height 26
+        maple-modeline-icon t
+        maple-modeline-separator 'wave
+        maple-modeline-direction '(right . left)))
+
+
+;; (use-package mood-line
+;; :straight t
+;;   ;; Enable mood-line
+;;   :config
+;;   (mood-line-mode)
+
+;;   ;; Use pretty Fira Code-compatible glyphs
+;;   :custom
+;;   (mood-line-glyph-alist mood-line-glyphs-unicode))
+
+;
+;; ;; Modeline minimal dengan doom-modeline
+;; (use-package doom-modeline
+;;   :straight t
+;;   :init (doom-modeline-mode 1)
+;;   :config
+;;   (setq doom-modeline-height 30
+;;         doom-modeline-buffer-file-name-style 'truncate-except-project
+;;         doom-modeline-project-name t
+;;         doom-modeline-bar-width 3
+;;         doom-modeline-minor-modes nil
+;;         doom-modeline-buffer-encoding t
+;;         nerd-icons-color-icons nil
+;;         doom-modeline-major-mode-icon t
+;;         doom-modeline-major-mode-color-icon t
+;;         doom-modeline-buffer-modification-icon t
+;;         doom-modeline-time t
+;;         doom-modeline-lsp t))
+
+;; modus-theme
+;; (use-package ef-themes
+;;   :straight t
+;;   :init
+;;   (ef-themes-take-over-modus-themes-mode 1)
+;;   :demand t
+;;   :config
+;;   (setq modus-themes-mixed-fonts t
+;;         modus-themes-italic-constructs t)
+;;   (load-theme 'ef-owl t))
+
+;; base16-theme
+(use-package base16-theme
   :straight t
   :config
-  (load-theme 'doom-tokyo-night t))
+  (load-theme 'base16-eighties t))
+
+;; (use-package apropospriate-theme
+;;   :straight t
+;;   :config
+;;   (load-theme 'apropospriate-dark t))
+
+;; ;; ;; modus-theme
+;; (use-package modus-themes
+;;   :straight t
+;;   :init
+;;   (modus-themes-include-derivatives-mode 1)
+;;   :demand t
+;;   :config
+;;     (setq modus-themes-to-toggle '(modus-operandi modus-vivendi)
+;;         modus-themes-to-rotate modus-themes-items
+;;         modus-themes-mixed-fonts t
+;;         modus-themes-variable-pitch-ui t
+;;         modus-themes-italic-constructs t
+;;         modus-themes-bold-constructs t
+;;         modus-themes-completions '((t . (bold)))
+;;         modus-themes-prompts '(bold)
+;;         modus-themes-headings
+;;         '((agenda-structure . (variable-pitch light 2.2))
+;;           (agenda-date . (variable-pitch regular 1.3))
+;;           (t . (regular 1.15))))
+;;     (setq modus-themes-common-palette-overrides nil)
+;;   (load-theme 'modus-vivendi-tinted t))
+
+;; Install theme
+;; (use-package doom-themes
+;;   :straight t
+;;   :config
+;;   (load-theme 'doom-tokyo-night t))
 
 ;; (use-package flexoki-themes
 ;;   :straight t

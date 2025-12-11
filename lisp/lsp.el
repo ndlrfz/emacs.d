@@ -24,6 +24,8 @@
 (use-package yasnippet
   :hook (prog-mode . yas-minor-mode)
   :config
+  (setq yas-snippet-dirs
+        '("~/.emacs.d/straight/repos/yasnippet-snippets"))
   (yas-reload-all))
 
 (use-package yasnippet-snippets

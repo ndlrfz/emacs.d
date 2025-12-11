@@ -37,17 +37,17 @@
   (set-face-attribute 'org-default nil :family "Fira Sans" :height 120)
 
   ;; Headings (ukuran berbeda-beda)
-  (set-face-attribute 'org-level-1 nil :family "Fira Sans" :height 160 :weight 'medium)
-  (set-face-attribute 'org-level-2 nil :family "Fira Sans" :height 150 :weight 'regular)
-  (set-face-attribute 'org-level-3 nil :family "Fira Sans" :height 140)
-  (set-face-attribute 'org-level-4 nil :family "Fira Sans" :height 130)
-  (set-face-attribute 'org-level-5 nil :family "Fira Sans" :height 125)
-  (set-face-attribute 'org-level-6 nil :family "Fira Sans" :height 120)
+  (set-face-attribute 'org-level-1 nil :family "Fira Sans" :height 150 :weight 'medium)
+  (set-face-attribute 'org-level-2 nil :family "Fira Sans" :height 140 :weight 'regular)
+  (set-face-attribute 'org-level-3 nil :family "Fira Sans" :height 130)
+  (set-face-attribute 'org-level-4 nil :family "Fira Sans" :height 120)
+  (set-face-attribute 'org-level-5 nil :family "Fira Sans" :height 115)
+  (set-face-attribute 'org-level-6 nil :family "Fira Sans" :height 110)
 
   ;; Jangan ubah font untuk code, src block, table, dll
-  (set-face-attribute 'org-code nil :family "Zenbones Mono")
-  (set-face-attribute 'org-block nil :family "Zenbones Mono")
-  (set-face-attribute 'org-table nil :family "Zenbones Mono")
+  (set-face-attribute 'org-code nil :family "Iosevka")
+  (set-face-attribute 'org-block nil :family "Iosevka")
+  (set-face-attribute 'org-table nil :family "Iosevka")
 
   ;; Images auto display
   (setq org-startup-with-inline-images t))
