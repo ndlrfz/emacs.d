@@ -37,17 +37,20 @@
 ;; yes to y - no to n
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; Default font settings
+;; disable warning native comp
+(setq native-comp-async-report-warnings-errors nil)
+
+ ;; Default font settings
 (defun my/set-default-font ()
   (set-face-attribute 'default nil
-                      :family "Iosevka"
-                      :height 170)   ;; 120 = 12pt
+                      :family "BlexMono Nerd Font"
+                      :height 155)   ;; 120 = 12pt
   (set-face-attribute 'fixed-pitch nil
-                      :family "Iosevka"
-                      :height 170)
+                      :family "BlexMono Nerd Font"
+                      :height 155)
   (set-face-attribute 'variable-pitch nil
-                      :family "Iosevka"
-                      :height 160))
+                      :family "BlexMono Nerd Font"
+                      :height 150))
 
 ;; Apply font for GUI frames (emacsclient included)
 (if (daemonp)
@@ -84,6 +87,9 @@
       `((".*" ,(expand-file-name "autosave/" user-emacs-directory) t)))
 (setq auto-save-list-file-prefix
       (expand-file-name "autosave/sessions-" user-emacs-directory))
+
+;; line height
+(setq-default line-spacing 0.2)
 
 ;; recentf
 (use-package recentf
@@ -152,16 +158,16 @@
 ;    punch-show-git-info t
 ;    punch-line-show-time-info nil))
 ;
-(use-package maple-modeline
-  :straight (maple-modeline :host github :repo "honmaple/emacs-maple-modeline")
-  :hook (after-init . maple-modeline-mode)
-  :config
-  (setq maple-modeline-style 'standard
-        maple-modeline-height 26
-        maple-modeline-icon t
-        maple-modeline-separator 'wave
-        maple-modeline-direction '(right . left)))
-
+; (use-package maple-modeline
+;   :straight (maple-modeline :host github :repo "honmaple/emacs-maple-modeline")
+;   :hook (after-init . maple-modeline-mode)
+;   :config
+;   (setq maple-modeline-style 'standard
+;         maple-modeline-height 26
+;         maple-modeline-icon t
+;         maple-modeline-separator 'wave
+;         maple-modeline-direction '(right . left)))
+;
 
 ;; (use-package mood-line
 ;; :straight t
@@ -175,22 +181,22 @@
 
 ;
 ;; ;; Modeline minimal dengan doom-modeline
-;; (use-package doom-modeline
-;;   :straight t
-;;   :init (doom-modeline-mode 1)
-;;   :config
-;;   (setq doom-modeline-height 30
-;;         doom-modeline-buffer-file-name-style 'truncate-except-project
-;;         doom-modeline-project-name t
-;;         doom-modeline-bar-width 3
-;;         doom-modeline-minor-modes nil
-;;         doom-modeline-buffer-encoding t
-;;         nerd-icons-color-icons nil
-;;         doom-modeline-major-mode-icon t
-;;         doom-modeline-major-mode-color-icon t
-;;         doom-modeline-buffer-modification-icon t
-;;         doom-modeline-time t
-;;         doom-modeline-lsp t))
+(use-package doom-modeline
+  :straight t
+  :init (doom-modeline-mode 1)
+  :config
+  (setq doom-modeline-height 30
+        doom-modeline-buffer-file-name-style 'truncate-except-project
+        doom-modeline-project-name t
+        doom-modeline-bar-width 3
+        doom-modeline-minor-modes nil
+        doom-modeline-buffer-encoding t
+        nerd-icons-color-icons nil
+        doom-modeline-major-mode-icon t
+        doom-modeline-major-mode-color-icon t
+        doom-modeline-buffer-modification-icon t
+        doom-modeline-time t
+        doom-modeline-lsp t))
 
 ;; modus-theme
 ;; (use-package ef-themes
@@ -204,15 +210,20 @@
 ;;   (load-theme 'ef-owl t))
 
 ;; base16-theme
-(use-package base16-theme
-  :straight t
-  :config
-  (load-theme 'base16-eighties t))
+;; (use-package base16-theme
+;;   :straight t
+;;   :config
+;;   (load-theme 'base16-eighties t))
 
 ;; (use-package apropospriate-theme
 ;;   :straight t
 ;;   :config
 ;;   (load-theme 'apropospriate-dark t))
+
+(use-package tangotango-theme
+  :straight t
+  :config
+  (load-theme 'tangotango t))
 
 ;; ;; ;; modus-theme
 ;; (use-package modus-themes

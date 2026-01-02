@@ -11,3 +11,4 @@
 (load "lsp.el")
 (load "lang.el")
 (load "dap.el")
+(load "vue.el")

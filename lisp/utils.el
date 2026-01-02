@@ -59,3 +59,7 @@
   :config
   :bind
   ("C-x g" . magit-status))
+
+;; multi-line edit
+(use-package multiple-cursors
+  :straight t)

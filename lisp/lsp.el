@@ -43,7 +43,8 @@
          (go-ts-mode . lsp-deferred)
          (js-ts-mode . lsp-deferred)
          (yaml-ts-mode . lsp-deferred)
-         (lua-ts-mode . lsp-deferred))
+         (lua-ts-mode . lsp-deferred)
+         (typescript-ts-mode . lsp-deferred))
   
   :config
   (setq lsp-headerline-breadcrumb-enable t

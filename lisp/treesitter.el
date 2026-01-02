@@ -22,7 +22,16 @@
   :config
   (nix-ts-mode))
 
+(use-package vue-mode
+  :straight t
+  :config
+  (vue-mode))
+
 ;; force php to php-ts-mode
+(add-to-list 'auto-mode-alist '("\\.sgml\\'" . sgml-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\'" . sgml-mode))
+(add-to-list 'auto-mode-alist '("\\.xml\\'"  . sgml-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
 
