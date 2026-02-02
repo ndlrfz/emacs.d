@@ -48,6 +48,7 @@
   
   :config
   (setq lsp-headerline-breadcrumb-enable t
+        lsp-headerline-breadcrumb-segments '(project file symbols)
         lsp-enable-snippet t
         lsp-prefer-capf t)
   :bind

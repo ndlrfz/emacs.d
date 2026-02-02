@@ -44,13 +44,13 @@
 (defun my/set-default-font ()
   (set-face-attribute 'default nil
                       :family "BlexMono Nerd Font"
-                      :height 155)   ;; 120 = 12pt
+                      :height 148)   ;; 120 = 12pt
   (set-face-attribute 'fixed-pitch nil
                       :family "BlexMono Nerd Font"
-                      :height 155)
+                      :height 148)
   (set-face-attribute 'variable-pitch nil
                       :family "BlexMono Nerd Font"
-                      :height 150))
+                      :height 140))
 
 ;; Apply font for GUI frames (emacsclient included)
 (if (daemonp)
@@ -89,7 +89,7 @@
       (expand-file-name "autosave/sessions-" user-emacs-directory))
 
 ;; line height
-(setq-default line-spacing 0.2)
+(setq-default line-spacing 0.1)
 
 ;; recentf
 (use-package recentf
@@ -198,7 +198,7 @@
         doom-modeline-time t
         doom-modeline-lsp t))
 
-;; modus-theme
+;; ef-theme
 ;; (use-package ef-themes
 ;;   :straight t
 ;;   :init
@@ -207,9 +207,9 @@
 ;;   :config
 ;;   (setq modus-themes-mixed-fonts t
 ;;         modus-themes-italic-constructs t)
-;;   (load-theme 'ef-owl t))
+;;   (load-theme 'ef-elea-dark t))
 
-;; base16-theme
+;; ;; base16-theme
 ;; (use-package base16-theme
 ;;   :straight t
 ;;   :config
@@ -220,40 +220,45 @@
 ;;   :config
 ;;   (load-theme 'apropospriate-dark t))
 
-(use-package tangotango-theme
-  :straight t
-  :config
-  (load-theme 'tangotango t))
+;; (use-package tangotango-theme
+;;   :straight t
+;;   :config
+;;   (load-theme 'tangotango t))
 
 ;; ;; ;; modus-theme
-;; (use-package modus-themes
-;;   :straight t
-;;   :init
-;;   (modus-themes-include-derivatives-mode 1)
-;;   :demand t
-;;   :config
-;;     (setq modus-themes-to-toggle '(modus-operandi modus-vivendi)
-;;         modus-themes-to-rotate modus-themes-items
-;;         modus-themes-mixed-fonts t
-;;         modus-themes-variable-pitch-ui t
-;;         modus-themes-italic-constructs t
-;;         modus-themes-bold-constructs t
-;;         modus-themes-completions '((t . (bold)))
-;;         modus-themes-prompts '(bold)
-;;         modus-themes-headings
-;;         '((agenda-structure . (variable-pitch light 2.2))
-;;           (agenda-date . (variable-pitch regular 1.3))
-;;           (t . (regular 1.15))))
-;;     (setq modus-themes-common-palette-overrides nil)
-;;   (load-theme 'modus-vivendi-tinted t))
+(use-package modus-themes
+  :straight t
+  :init
+  (modus-themes-include-derivatives-mode 1)
+  :demand t
+  :config
+    (setq modus-themes-to-toggle '(modus-operandi modus-vivendi)
+        modus-themes-to-rotate modus-themes-items
+        modus-themes-mixed-fonts t
+        modus-themes-variable-pitch-ui t
+        modus-themes-italic-constructs t
+        modus-themes-bold-constructs t
+        modus-themes-completions '((t . (bold)))
+        modus-themes-prompts '(bold)
+        modus-themes-headings
+        '((agenda-structure . (variable-pitch light 2.2))
+          (agenda-date . (variable-pitch regular 1.3))
+          (t . (regular 1.15))))
+    (setq modus-themes-common-palette-overrides nil)
+  (load-theme 'modus-vivendi-tinted t))
 
 ;; Install theme
 ;; (use-package doom-themes
 ;;   :straight t
 ;;   :config
-;;   (load-theme 'doom-tokyo-night t))
+;;   (load-theme 'doom-xcode t))
 
-;; (use-package flexoki-themes
+; (use-package color-theme-sanityinc-tomorrow
+;   :straight t
+;   :config
+;   (load-theme 'sanityinc-tomorrow-eighties t))
+;
+;; ;; (use-package flexoki-themes
 ;;   :straight t
 ;;   :config
 ;;   (load-theme 'flexoki-themes-dark t))

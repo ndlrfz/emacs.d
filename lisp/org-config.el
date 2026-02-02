@@ -34,20 +34,20 @@
               (local-set-key (kbd "TAB") #'org-cycle)))
 
   ;; Body text
-  (set-face-attribute 'org-default nil :family "Roboto" :height 125)
+  (set-face-attribute 'org-default nil :family "IBM Plex Sans" :height 125)
 
   ;; Headings (ukuran berbeda-beda)
-  (set-face-attribute 'org-level-1 nil :family "Roboto" :height 160 :weight 'medium)
-  (set-face-attribute 'org-level-2 nil :family "Roboto" :height 150 :weight 'regular)
-  (set-face-attribute 'org-level-3 nil :family "Roboto" :height 140)
-  (set-face-attribute 'org-level-4 nil :family "Roboto" :height 150)
-  (set-face-attribute 'org-level-5 nil :family "Roboto" :height 125)
-  (set-face-attribute 'org-level-6 nil :family "Roboto" :height 120)
+  (set-face-attribute 'org-level-1 nil :family "IBM Plex Sans" :height 150 :weight 'medium)
+  (set-face-attribute 'org-level-2 nil :family "IBM Plex Sans" :height 140 :weight 'regular)
+  (set-face-attribute 'org-level-3 nil :family "IBM Plex Sans" :height 130)
+  (set-face-attribute 'org-level-4 nil :family "IBM Plex Sans" :height 120)
+  (set-face-attribute 'org-level-5 nil :family "IBM Plex Sans" :height 115)
+  (set-face-attribute 'org-level-6 nil :family "IBM Plex Sans" :height 100)
 
   ;; Jangan ubah font untuk code, src block, table, dll
-  (set-face-attribute 'org-code nil :family "Zenbones Proto" :height 145)
-  (set-face-attribute 'org-block nil :family "Zenbones Proto" :height 145)
-  (set-face-attribute 'org-table nil :family "Zenbones Proto" :height 145)
+  (set-face-attribute 'org-code nil :family "BlexMono Nerd Font" :height 145)
+  (set-face-attribute 'org-block nil :family "BlexMono Nerd Font" :height 145)
+  (set-face-attribute 'org-table nil :family "BlexMono Nerd Font" :height 145)
 
   ;; Images auto display
   (setq org-startup-with-inline-images t))
